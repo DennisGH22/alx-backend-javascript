@@ -4,6 +4,7 @@ const countStudents = (path) => {
   try {
     const data = fs.readFileSync(path, 'utf8');
     const lines = data.trim().split('\n');
+    lines.shift();
 
     const fieldCounts = {};
 
@@ -11,19 +12,14 @@ const countStudents = (path) => {
       const fields = line.split(',');
       const field = fields[fields.length - 1].trim();
 
-      if (field !== 'undefined' && field !== 'field') {
-        if (fieldCounts[field]) {
-          fieldCounts[field].push(fields[0].trim());
-        } else {
-          fieldCounts[field] = [fields[0].trim()];
-        }
+      if (fieldCounts[field]) {
+        fieldCounts[field].push(fields[0].trim());
+      } else {
+        fieldCounts[field] = [fields[0].trim()];
       }
     });
 
-	lines.shift();
-	lines.pop();
-
-	console.log(`Number of students: ${lines.length}`);
+    console.log(`Number of students: ${lines.length}`);
 
     for (const field in fieldCounts) {
       console.log(`Number of students in ${field}: ${fieldCounts[field].length}. List: ${fieldCounts[field].join(', ')}`);
