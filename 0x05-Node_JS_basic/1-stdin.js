@@ -1,4 +1,4 @@
-process.stdout.write('Welcome to Holberton School, what is your name?\n');
+console.log('Welcome to Holberton School, what is your name?');
 
 process.stdin.on('data', (chunk) => {
   const input = chunk.toString().trim();
@@ -7,5 +7,5 @@ process.stdin.on('data', (chunk) => {
 });
 
 process.stdin.on('end', () => {
-  process.stdout.write('This important software is now closing');
+  console.log('This important software is now closing');
 });
