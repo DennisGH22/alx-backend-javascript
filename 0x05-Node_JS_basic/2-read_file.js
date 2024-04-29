@@ -20,7 +20,15 @@ const countStudents = (path) => {
       }
     });
 
-	console.log(`Number of students: ${lines.length - 1}`);
+	lines.shift();
+	lines.pop();
+	console.log(lines)
+
+	let totalStudents = 0;
+	for (i = 0; i <= lines.length; i++) {
+		totalStudents += [i].length
+	}
+	console.log(`Number of students: ${totalStudents}`);
 
     for (const field in fieldCounts) {
       console.log(`Number of students in ${field}: ${fieldCounts[field].length}. List: ${fieldCounts[field].join(', ')}`);
