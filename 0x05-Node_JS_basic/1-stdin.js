@@ -1,6 +1,6 @@
 console.log('Welcome to Holberton School, what is your name?');
 
-process.stdin.on('readable', () => {
+process.stdin.on('data', () => {
   const input = process.stdin.read();
 
   console.log(`Your name is: ${input}`);
