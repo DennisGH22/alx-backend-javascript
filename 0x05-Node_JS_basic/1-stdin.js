@@ -4,6 +4,7 @@ process.stdin.on('data', (chunk) => {
   const input = chunk.toString().trim();
 
   console.log(`Your name is: ${input}`);
+  process.exit();
 });
 
 process.stdin.on('end', () => {
