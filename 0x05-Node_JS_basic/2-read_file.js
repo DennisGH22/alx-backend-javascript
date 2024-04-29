@@ -20,7 +20,7 @@ const countStudents = (path) => {
       }
     });
 
-    console.log(`Number of students: ${lines.length}`);
+	console.log(`Number of students: ${lines.length - 1}`);
 
     let totalStudents = 0;
     for (const field in fieldCounts) {
