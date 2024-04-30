@@ -15,8 +15,11 @@ const app = http.createServer((req, res) => {
       .then(({ numberOfStudents, fieldCounts }) => {
         res.write('This is the list of our students\n');
         res.write(`Number of students: ${numberOfStudents}\n`);
-        Object.entries(fieldCounts).forEach(([field, studentsList]) => {
-          res.write(`Number of students in ${field}: ${studentsList.length}. List: ${studentsList.join(', ')}\n`);
+        Object.entries(fieldCounts).forEach(([field, studentsList], index, arr) => {
+          res.write(`Number of students in ${field}: ${studentsList.length}. List: ${studentsList.join(', ')}`);
+          if (index !== arr.length - 1) {
+            res.write('\n');
+          }
         });
         res.end();
       });
