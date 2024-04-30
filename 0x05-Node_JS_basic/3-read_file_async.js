@@ -33,7 +33,12 @@ const countStudents = (path) => {
 				console.log(`Number of students in ${field}: ${fieldCounts[field].length}. List: ${fieldCounts[field].join(', ')}`);
 			}
 
-			resolve();
+			const result = {
+                numberOfStudents,
+                fieldCounts
+            };
+
+			resolve(result);
 		});
 	});
 };
