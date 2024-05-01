@@ -11,7 +11,7 @@ const readDatabase = (filePath) => {
       const lines = data.trim().split('\n');
       const students = {};
 
-      lines.forEach(line => {
+      lines.forEach((line) => {
         const fields = line.split(',');
         const field = fields[fields.length - 1].trim();
 
