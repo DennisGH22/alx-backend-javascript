@@ -5,14 +5,14 @@ const countStudents = (path) => {
     const data = fs.readFileSync(path, 'utf8');
     const lines = data.trim().split('\n');
 
-    const students = lines.slice(1).map(line => line.split(','));
+    const students = lines.slice(1).map((line) => line.split(','));
     const numberOfStudents = students.length;
 
     console.log(`Number of students: ${numberOfStudents}`);
 
     const fieldCounts = {};
 
-    lines.forEach(line => {
+    lines.forEach((line) => {
       const fields = line.split(',');
       const field = fields[fields.length - 1].trim();
 
