@@ -6,13 +6,11 @@ describe('sendPaymentRequestToApi', () => {
   let consoleLogSpy;
 
   beforeEach(() => {
-    if (!consoleLogSpy) {
-      consoleLogSpy = sinon.spy(console);
-    }
+    consoleLogSpy = sinon.spy(console);
   });
 
   afterEach(() => {
-    consoleLogSpy.log.restore();
+    consoleLogSpy.log.resetHistory();
   });
 
   it('is logging the correct message "The total is: 120"', () => {
