@@ -6,7 +6,9 @@ describe('sendPaymentRequestToApi', () => {
   let consoleLogSpy;
 
   beforeEach(() => {
-    consoleLogSpy = sinon.spy(console);
+    if (!consoleLogSpy) {
+      consoleLogSpy = sinon.spy(console);
+    }
   });
 
   afterEach(() => {
