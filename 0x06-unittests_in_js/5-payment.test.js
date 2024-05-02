@@ -6,7 +6,7 @@ describe('sendPaymentRequestToApi', () => {
   let consoleLogSpy;
 
   beforeEach(() => {
-    consoleLogSpy = sinon.spy(console);
+    if (!consoleLogSpy) consoleLogSpy = sinon.spy(console);
   });
 
   afterEach(() => {
@@ -20,8 +20,6 @@ describe('sendPaymentRequestToApi', () => {
   });
 
   it('is logging the correct message "The total is: 20"', () => {
-    const consoleLogSpy = sinon.spy(console);
-
     sendPaymentRequestToApi(10, 10);
     expect(consoleLogSpy.log.calledWithExactly('The total is: 20'));
     expect(consoleLogSpy.log.calledOnce);
