@@ -1,0 +1,20 @@
+const sendPaymentRequestToApi = require('./3-payment');
+const Utils = require('./utils');
+const { expect } = require('chai');
+const sinon = require('sinon');
+
+describe('sendPaymentRequestToApi', () => {
+  it('is logging the correct message "The total is: 10"', () => {
+    let calculateNumberStub, consoleLogSpy;
+
+    calculateNumberStub = sinon.stub(Utils, 'calculateNumber').returns(10);
+    consoleLogSpy = sinon.spy(console);
+
+    sendPaymentRequestToApi(100, 20);
+    expect(calculateNumberStub.calledWithExactly('SUM', 100, 20));
+    expect(consoleLogSpy.log.calledWithExactly('The total is: 10'));
+    
+    calculateNumberStub.restore();
+    consoleLogSpy.log.restore();
+  });
+});
