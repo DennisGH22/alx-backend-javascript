@@ -18,6 +18,7 @@ describe('sendPaymentRequestToApi', () => {
 
     sendPaymentRequestToApi(100, 20);
     expect(consoleLogSpy.log.calledOnceWithExactly('The total is: 120'));
+    expect(consoleLogSpy.log.calledOnce);
   });
 
   it('is logging the correct message "The total is: 20"', () => {
@@ -25,5 +26,6 @@ describe('sendPaymentRequestToApi', () => {
 
     sendPaymentRequestToApi(10, 10);
     expect(consoleLogSpy.log.calledOnceWithExactly('The total is: 20'));
+    expect(consoleLogSpy.log.calledOnce);
   });
 });
